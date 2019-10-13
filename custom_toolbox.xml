@@ -1,0 +1,4 @@
+<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+  <category name="Robot Control" colour="#5b67a5"/>
+  <category name="Sensors" colour="#995ba5"/>
+</xml>

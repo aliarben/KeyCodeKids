@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!-- HTML file to host Blockly in a mobile WebView. -->
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" charset="utf-8">
+  <script src="blockly_compressed.js"></script>
+  <script src="blocks_compressed.js"></script>
+  <script src="javascript_compressed.js"></script>
+  <!-- TODO: Select msg file based on locale. -->
+  <script src="msg/js/en.js"></script>
+  <script src="custom_blocks.js"></script>
+  <style type="text/css">
+    html, body, #blocklyDiv {
+      border: 0;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+  </style>
+
+</head>
+<body>
+	<p>	
+		<button onclick="showCode()">Show JavaScript</button>
+		<button onclick="runCode()">Run JavaScript</button>	
+	</p>
+	
+	<div id="blocklyDiv"></div>
+	
+	<xml xmlns="https://developers.google.com/blockly/xml" id="workspaceBlocks" style="display: none"/>
+	<category name="Robot Control" colour="#5b67a5">
+		<block type="kids_run_left"/>
+		<block type="kids_run_right"/>
+		<block type="kids_run_backward"/>
+		<block type="kids_run_forward"/>
+	</category>
+	  <category name="Sensors" colour="#995ba5">
+		<block type="line_follower">
+		  <field name="Line_follower_sensor_state">Line_follower_sensor_ON</field>
+		</block>
+		<block type="ultrasonic">
+		  <field name="Ultrasonic_sensor_state">Ultrasonic_sensor_ON</field>
+		</block>
+		<block type="sound_sensor">
+		  <field name="Sound _sensor_state">Sound_sensor_ON</field>
+		</block>
+		<block type="lights_sensor">
+		  <field name="Lights_sensor_state">Lights_sensor_ON</field>
+		</block>
+	  </category>
+	  <category name="Logic" colour="#5b80a5">
+		<block type="controls_if"/>
+		<block type="logic_compare">
+		  <field name="OP">EQ</field>
+		</block>
+		<block type="logic_operation">
+		  <field name="OP">AND</field>
+		</block>
+		<block type="logic_negate"/>
+		<block type="logic_boolean">
+		  <field name="BOOL">TRUE</field>
+		</block>
+		<block type="logic_null"/>
+		<block type="logic_ternary"/>
+	  </category>	  
+	  <category name="Loops" colour="#5ba55b">
+		<block type="controls_repeat_ext">
+		  <value name="TIMES">
+			<shadow type="math_number">
+			  <field name="NUM">10</field>
+			</shadow>
+		  </value>
+		</block>
+		<block type="controls_whileUntil">
+		  <field name="MODE">WHILE</field>
+		</block>
+		<block type="controls_for">
+		  <field name="VAR" id="8CY0ZB25TmnjlGWo0w0.">i</field>
+		  <value name="FROM">
+			<shadow type="math_number">
+			  <field name="NUM">1</field>
+			</shadow>
+		  </value>
+		  <value name="TO">
+			<shadow type="math_number">
+			  <field name="NUM">10</field>
+			</shadow>
+		  </value>
+		  <value name="BY">
+			<shadow type="math_number">
+			  <field name="NUM">1</field>
+			</shadow>
+		  </value>
+		</block>
+		<block type="controls_forEach">
+		  <field name="VAR" id="*eSXuii/~.57~,2-2!wW">j</field>
+		</block>
+		<block type="controls_flow_statements" disabled="true">
+		  <field name="FLOW">BREAK</field>
+		</block>
+	  </category>
+	  <category name="Variables" colour="#a55b80" custom="VARIABLE"/>	  
+	</xml>  
+	
+  <script type="text/javascript">
+	var toolbox = document.getElementById("workspaceBlocks");
+	var options = { 
+		toolbox : toolbox, 
+		media : 'https://blockly-demo.appspot.com/static/media/'
+	};
+	/* Inject your workspace */ 
+	var workspace = Blockly.inject('blocklyDiv', options);
+
+	function showCode(){
+		Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+		var code = Blockly.JavaScript.workspaceToCode(workspace);
+		alert(code);
+	}
+	function runCode(){
+		window.LoopTrap = 1000;
+		Blockly.JavaScript.INFINITE_LOOP_TRAP = 
+			'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+		var code = Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+		try{
+			eval(code)
+		}catch (e){
+			alert(e);
+		}
+	}
+  </script>
+</body>
+</html>
