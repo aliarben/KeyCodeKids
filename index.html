@@ -29,11 +29,23 @@
 	<div id="blocklyDiv"></div>
 	
 	<xml xmlns="https://developers.google.com/blockly/xml" id="workspaceBlocks" style="display: none"/>
-	<category name="Robot Control" colour="#5b67a5">
-		<block type="kids_run_left"/>
-		<block type="kids_run_right"/>
-		<block type="kids_run_backward"/>
-		<block type="kids_run_forward"/>
+	<category name="RobotControl" colour="#5b67a5">
+		<block type="run_forward"></block>
+		<block type="run_backward"></block>	
+		<block type="turn_left"></block>	
+		<block type="turn_right"></block>	
+		<block type="stop"></block>	
+		<block type="dance_show_1"></block>	
+	</category>
+	<category name="Lights Control" colour="#995ba5">
+		<block type="led_red_on"></block>	
+		<block type="led_red_off"></block>	
+		<block type="led_green_on"></block>	
+		<block type="led_green_off"></block>	
+		<block type="led_blue_on"></block>	
+		<block type="led_blue_off"></block>	
+		<block type="light_show_on"></block>	
+		<block type="light_show_off"></block>	
 	</category>
 	  <category name="Sensors" colour="#995ba5">
 		<block type="line_follower">
@@ -49,58 +61,6 @@
 		  <field name="Lights_sensor_state">Lights_sensor_ON</field>
 		</block>
 	  </category>
-	  <category name="Logic" colour="#5b80a5">
-		<block type="controls_if"/>
-		<block type="logic_compare">
-		  <field name="OP">EQ</field>
-		</block>
-		<block type="logic_operation">
-		  <field name="OP">AND</field>
-		</block>
-		<block type="logic_negate"/>
-		<block type="logic_boolean">
-		  <field name="BOOL">TRUE</field>
-		</block>
-		<block type="logic_null"/>
-		<block type="logic_ternary"/>
-	  </category>	  
-	  <category name="Loops" colour="#5ba55b">
-		<block type="controls_repeat_ext">
-		  <value name="TIMES">
-			<shadow type="math_number">
-			  <field name="NUM">10</field>
-			</shadow>
-		  </value>
-		</block>
-		<block type="controls_whileUntil">
-		  <field name="MODE">WHILE</field>
-		</block>
-		<block type="controls_for">
-		  <field name="VAR" id="8CY0ZB25TmnjlGWo0w0.">i</field>
-		  <value name="FROM">
-			<shadow type="math_number">
-			  <field name="NUM">1</field>
-			</shadow>
-		  </value>
-		  <value name="TO">
-			<shadow type="math_number">
-			  <field name="NUM">10</field>
-			</shadow>
-		  </value>
-		  <value name="BY">
-			<shadow type="math_number">
-			  <field name="NUM">1</field>
-			</shadow>
-		  </value>
-		</block>
-		<block type="controls_forEach">
-		  <field name="VAR" id="*eSXuii/~.57~,2-2!wW">j</field>
-		</block>
-		<block type="controls_flow_statements" disabled="true">
-		  <field name="FLOW">BREAK</field>
-		</block>
-	  </category>
-	  <category name="Variables" colour="#a55b80" custom="VARIABLE"/>	  
 	</xml>  
 	
   <script type="text/javascript">
