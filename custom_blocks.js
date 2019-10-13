@@ -71,6 +71,42 @@ Blockly.JavaScript['turn_right'] = function(block) {
   return code;
 };
 
+//turn_back_left
+Blockly.Blocks['turn_back_left'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage("https://github.com/aliarben/KeyCodeKids/raw/master/img/backleft.png", 50, 50, "*"));
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("Turn robot left");
+ this.setHelpUrl("");
+  }
+}
+Blockly.JavaScript['turn_back_left'] = function(block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = '#118{};\n';
+  return code;
+};
+
+//turn_back_right
+Blockly.Blocks['turn_back_right'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage("https://github.com/aliarben/KeyCodeKids/raw/master/img/backright.png", 50, 50, "*"));
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("Turn robot left");
+ this.setHelpUrl("");
+  }
+}
+Blockly.JavaScript['turn_back_right'] = function(block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = '#119{};\n';
+  return code;
+};
+
 //stop
 Blockly.Blocks['stop'] = {
   init: function() {
